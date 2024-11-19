@@ -19,3 +19,92 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 10s ease infinite;
+}
+  
+
+/* global.css */
+
+/* Animated Header Gradient with Moving Lines */
+.animatedHeader {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #FFD700, #00BFFF, #FFFFE0);
+  background-size: 400% 400%;
+  animation: gradientAnimation 8s infinite linear;
+}
+
+.animatedHeader::before,
+.animatedHeader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    black 10px,
+    black 20px
+  );
+  opacity: 0.1; /* Adjust opacity for subtle effect */
+  animation: moveLines 15s infinite linear;
+}
+
+.animatedHeader::after {
+  animation-delay: -7.5s; /* Offset for a more dynamic effect */
+}
+
+/* Gradient Animation for Background */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Moving Lines Animation */
+@keyframes moveLines {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-50%) translateY(-50%); }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100vh); /* Start from above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  to {
+    transform: translateY(0); /* Final position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100vh); /* Start from above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  to {
+    transform: translateY(0); /* Final position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.animate-slideIn {
+  animation: slideInFromTop 1s ease-out; /* Adjust timing and easing as needed */
+}

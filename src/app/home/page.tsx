@@ -127,7 +127,7 @@ export default function Home() {
           id="contact"
           className="p-6 mt-10 max-w-screen-md w-full shadow-2xl bg-white/90 rounded-lg  backdrop-blur-md animate-fadeIn transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
         >
-          <h2 className="text-3xl font-semibold text-gray-900 mb-4">Contact Us</h2>
+          <h2 className="text-3xl font-semibold text-gray-900 mb-4">Contact TPO</h2>
           <p className="text-lg mb-4">
             Get in touch with us for more details or inquiries about the activities.
           </p>
