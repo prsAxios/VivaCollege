@@ -83,16 +83,7 @@ body {
   100% { transform: translateX(-50%) translateY(-50%); }
 }
 
-@keyframes slideInFromTop {
-  from {
-    transform: translateY(-100vh); /* Start from above the viewport */
-    opacity: 0; /* Start invisible */
-  }
-  to {
-    transform: translateY(0); /* Final position */
-    opacity: 1; /* Fully visible */
-  }
-}
+
 
 @keyframes slideInFromTop {
   from {

@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import GlassHeader from '@/components/GlassHeader';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
+
 
 export default function Home() {
   useEffect(() => {
@@ -143,13 +145,6 @@ export default function Home() {
         
       </main>
        {/* Footer */}
-       <footer className="bg-indigo-700 text-white py-6">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-sm">
-            © 2024 Viva Institute of Technology. All rights reserved.
-          </p>
-        </div>
-      </footer>
 
     </div>
 

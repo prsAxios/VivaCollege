@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import GlassHeader from '@/components/GlassHeader';
+import Footer from '@/components/Footer';
 
 export default function TechChase() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +39,7 @@ export default function TechChase() {
             className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
           >
             <Image
-              src="/image1.jpg"
+              src="/MainImage.jpg"
               alt="Industrial Visit 1"
               width={500}
               height={300}
@@ -286,6 +287,12 @@ export default function TechChase() {
           </div>
         )}
       </main>
+
+         {/* Footer */}
+     {/* Footer */}
+     <div className='mt-10'>
+        <Footer />
+      </div>
     </div>
   );
 }

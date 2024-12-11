@@ -1,159 +1,299 @@
 "use client"
-import { useEffect } from 'react';
-import { gsap } from 'gsap';
+import { useState } from 'react';
+import Image from 'next/image';
 import GlassHeader from '@/components/GlassHeader';
-import Link from 'next/link';
+import Footer from '@/components/Footer';
 
-export default function Home() {
-  useEffect(() => {
-    // Select all section divs
-    const sections = document.querySelectorAll('section');
-    
-    // Loop through all the sections and apply animations
-    sections.forEach((section, index) => {
-      const direction = Math.random() > 0.5 ? 'left' : 'right'; // Randomly choose left or right
+export default function TechChase() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
 
-      gsap.fromTo(
-        section,
-        {
-          x: direction === 'left' ? '-100vw' : '100vw', // Starting from left or right off-screen
-          opacity: 0, // Start with opacity 0
-        },
-        {
-          x: 0, // Move to center
-          opacity: 1, // Fade in
-          duration: 1.5, // Duration of the animation
-          ease: 'power3.out', // Ease type
-          delay: index * 0.2, // Stagger the animations
-        }
-      );
-    });
-  }, []);
+  // Function to open the modal with the selected image
+  const openModal = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+    setIsOpen(true);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedImage('');
+  };
 
   return (
-    <div className="bg-gradient-to-r from-white via-gray-100 to-white">
-      {/* GlassHeader imported and used here */}
+    <div className="bg-white min-h-screen text-gray-900">
+      {/* Transparent Glass Navbar */}
       <GlassHeader />
 
-      {/* Main content below the header */}
-      <main className="flex flex-col items-center justify-center min-h-screen text-gray-900">
-        {/* Main Section */}
-        <section
-          id="industrial-visits"
-          className="p-6 mt-10 max-w-screen-md w-full bg-white/90 rounded-lg shadow-2xl backdrop-blur-md animate-fadeIn transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
-        >
-          <h2 className="text-3xl font-semibold text-gray-900 mb-4">Industrial Visits</h2>
-          <p className="text-lg mb-4">
-            Learn about various industrial visits and the experiences we offer.
-          </p>
-          {/* Explore Button */}
-          <Link
-            href="/industrial-visits"
-            className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-600"
-          >
-            Explore
-          </Link>
+      <main className="p-10 space-y-10">
+        <section className="space-y-6">
+          <h1 className="text-4xl font-semibold">Industrial Visits 2023 and 2024</h1>
+          <p className="text-lg text-gray-700">Explore our various industrial visits and their significance.</p>
         </section>
 
-        <section
-          id="techchase"
-          className="p-6 mt-10 max-w-screen-md w-full shadow-2xl bg-white/90 rounded-lg backdrop-blur-md animate-fadeIn transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
-        >
-          <h2 className="text-3xl font-semibold text-gray-900 mb-4">TechChase</h2>
-          <p className="text-lg mb-4">
-            Explore the latest tech trends with our TechChase initiative.
-          </p>
-          {/* Explore Button */}
-          <Link
-            href="/techchase"
-            className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-600"
+        {/* Glass Effect Cards */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Card 1 */}
+          <div
+            onClick={() => openModal('/image1.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
           >
-            Explore
-          </Link>
+            <Image
+              src="/MainImage.jpg"
+              alt="Industrial Visit 1"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 1</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-01-20</span>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div
+            onClick={() => openModal('/image2.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image2.jpg"
+              alt="Industrial Visit 2"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 2</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-02-15</span>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div
+            onClick={() => openModal('/image3.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image3.jpg"
+              alt="Industrial Visit 3"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 3</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-03-10</span>
+            </div>
+          </div>
+
+          
+          {/* Card 3 */}
+          <div
+            onClick={() => openModal('/image3.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image3.jpg"
+              alt="Industrial Visit 3"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 3</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-03-10</span>
+            </div>
+          </div>
+
+          
+          {/* Card 3 */}
+          <div
+            onClick={() => openModal('/image3.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image3.jpg"
+              alt="Industrial Visit 3"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 3</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-03-10</span>
+            </div>
+          </div>
+
+          
+          {/* Card 3 */}
+          <div
+            onClick={() => openModal('/image3.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image3.jpg"
+              alt="Industrial Visit 3"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 3</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-03-10</span>
+            </div>
+          </div>
+      {/* Card 1 */}
+      <div
+            onClick={() => openModal('/image1.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image1.jpg"
+              alt="Industrial Visit 1"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 1</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-01-20</span>
+            </div>
+          </div>
+
+            {/* Card 1 */}
+            <div
+            onClick={() => openModal('/image1.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image1.jpg"
+              alt="Industrial Visit 1"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 1</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-01-20</span>
+            </div>
+          </div>
+
+            {/* Card 1 */}
+            <div
+            onClick={() => openModal('/image1.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image1.jpg"
+              alt="Industrial Visit 1"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 1</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-01-20</span>
+            </div>
+          </div>
+
+            {/* Card 1 */}
+            <div
+            onClick={() => openModal('/image1.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image1.jpg"
+              alt="Industrial Visit 1"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 1</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-01-20</span>
+            </div>
+          </div>
+
+            {/* Card 1 */}
+            <div
+            onClick={() => openModal('/image1.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image1.jpg"
+              alt="Industrial Visit 1"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 1</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-01-20</span>
+            </div>
+          </div>
+          
+          {/* Card 3 */}
+          <div
+            onClick={() => openModal('/image3.jpg')}
+            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
+          >
+            <Image
+              src="/image3.jpg"
+              alt="Industrial Visit 3"
+              width={500}
+              height={300}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              <h3 className="text-xl font-semibold">Visit Title 3</h3>
+              <p>Short description of the visit.</p>
+              <span className="text-sm">Date: 2024-03-10</span>
+            </div>
+          </div>
+
+          {/* More Cards... */}
         </section>
 
-        <section
-          id="hitaishi"
-          className="p-6 mt-10 max-w-screen-md w-full shadow-2xl bg-white/90 rounded-lg backdrop-blur-md animate-fadeIn transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
-        >
-          <h2 className="text-3xl font-semibold text-gray-900 mb-4">Hitaishi</h2>
-          <p className="text-lg mb-4">
-            Discover the Hitaishi project and its contributions to the tech world.
-          </p>
-          {/* Explore Button */}
-          <Link
-            href="/hitaishi"
-            className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-600"
-          >
-            Explore
-          </Link>
-        </section>
-
-        <section
-          id="isr-activity"
-          className="p-6 mt-10 max-w-screen-md w-full shadow-2xl bg-white/90 rounded-lg backdrop-blur-md animate-fadeIn transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
-        >
-          <h2 className="text-3xl font-semibold text-gray-900 mb-4">ISR Activity</h2>
-          <p className="text-lg mb-4">
-            Get involved in the ISR activities to make a positive social impact.
-          </p>
-          {/* Explore Button */}
-          <Link
-            href="/isr-activity"
-            className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-600"
-          >
-            Explore
-          </Link>
-        </section>
-
-        <section
-          id="additional"
-          className="p-6 mt-10 max-w-screen-md w-full shadow-2xl bg-white/90 rounded-lg  backdrop-blur-md animate-fadeIn transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
-        >
-          <h2 className="text-3xl font-semibold text-gray-900 mb-4">Additional Activities</h2>
-          <p className="text-lg mb-4">
-            Here you can find more activities and events hosted by our organization.
-          </p>
-          {/* Explore Button */}
-          <Link
-            href="/additional-activities"
-            className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-600"
-          >
-            Explore
-          </Link>
-        </section>
-
-        <section
-          id="contact"
-          className="p-6 mt-10 max-w-screen-md w-full shadow-2xl bg-white/90 rounded-lg  backdrop-blur-md animate-fadeIn transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
-        >
-          <h2 className="text-3xl font-semibold text-gray-900 mb-4">Contact TPO</h2>
-          <p className="text-lg mb-4">
-            Get in touch with us for more details or inquiries about the activities.
-          </p>
-          {/* Explore Button */}
-          <Link
-            href="/contact"
-            className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-600"
-          >
-            Explore
-          </Link>
-        </section>
-
-        
+        {/* Modal for Enlarged Image */}
+        {isOpen && (
+          <div className="fixed inset-0 bg-black/60 z-50 flex justify-center items-center">
+            <div className="relative">
+              <Image
+                src={selectedImage}
+                alt="Enlarged Image"
+                width={800}
+                height={600}
+                className="object-contain"
+              />
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 bg-white p-2 rounded-full text-black shadow-lg hover:bg-gray-200 hover:bg-transparent"
+              >
+                X
+              </button>
+            </div>
+          </div>
+        )}
       </main>
-       {/* Footer */}
-       <footer className="bg-indigo-700 text-white py-6">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-sm">
-            © 2024 Viva Institute of Technology. All rights reserved.
-          </p>
-        </div>
-      </footer>
 
+         {/* Footer */}
+     {/* Footer */}
+     <div className='mt-10'>
+        <Footer />
+      </div>
     </div>
-
-    
-           
   );
 }
+

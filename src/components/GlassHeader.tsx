@@ -1,40 +1,87 @@
-import React from 'react';
+"use client";
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const GlassHeader = () => {
+  useEffect(() => {
+    // Dynamically add Font Awesome CDN for icons
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
+    document.head.appendChild(link);
+  }, []);
+
   return (
-    <header className="w-full p-8 rounded-lg sticky top-0 z-50 animate__animated animate__fadeIn bg-gradient-to-r from-transparent via-transparent to-transparent backdrop-blur-md shadow-2xl">
-      <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-4"> {/* Flex container for logo and text */}
-        <Image
-            src="/vivalogon.png"
-            alt="Viva Technology Logo"
-            width={80} 
-            height={80} 
-            className="object-cover" // Optional: Ensure image maintains aspect ratio
+    <nav className="bg-white/30 shadow-lg sticky top-0 z-50 py-4 sm:py-6 rounded-lg border border-white/30 backdrop-blur-md">
+      <div className="container mx-auto px-4 flex items-center justify-between space-x-6 sm:space-x-8">
+        {/* Logo and Institute Details */}
+        <div className="flex items-center space-x-4 sm:space-x-6 flex-shrink-0 w-full sm:w-auto">
+          <Image
+            src="/vivalogon-removebg-preview.png"
+            alt="VIVA Institute Logo"
+            width={150}
+            height={150}
+            className="max-w-full h-auto"
           />
-          <div className="text-2xl font-bold text-black ">
-            Viva Technology
+          <div className="text-gray-900 space-y-1 sm:space-y-2">
+            <h6 className="text-red-500 text-xs sm:text-sm font-bold">
+              Vishnu Waman Thakur Charitable Trust's
+            </h6>
+            <h5 className="text-blue-600 text-sm sm:text-lg font-bold">
+              VIVA Institute of Technology
+            </h5>
+            <p className="text-xs sm:text-sm">
+              Approved by AICTE New Delhi, Recognized by DTE, Govt. of Maharashtra,
+              <br />
+              Affiliated to the University of Mumbai
+              <br />
+              <span className="text-red-500 font-bold">
+                ACCREDITED by NAAC with "B++" Grade
+              </span>
+            </p>
           </div>
-          
         </div>
 
-        <nav>
-          <div className="flex justify-center space-x-6">
-            {['industrial-visits', 'techchase', 'hitaishi', 'isr-activity', 'additional', 'contact'].map((item, index) => (
-              <Link
-                key={index}
-                href={`#${item}`}
-                className="p-4 text-black bg-white/30 hover:bg-white/50 rounded-lg cursor-pointer backdrop-blur-md transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
-              >
-                {item.replace('-', ' ').toUpperCase()}
-              </Link>
-            ))}
-          </div>
-        </nav>
+        {/* Navbar Links (Icons) */}
+        <div className="flex items-center space-x-6 sm:space-x-8">
+          {/* Facebook Icon */}
+          <Link href="https://facebook.com" target="_blank">
+            <i className="fab fa-facebook-f text-2xl text-blue-600 hover:text-blue-700 transition duration-200"></i>
+          </Link>
+
+          {/* LinkedIn Icon */}
+          <Link href="https://linkedin.com" target="_blank">
+            <i className="fab fa-linkedin-in text-2xl text-blue-700 hover:text-blue-800 transition duration-200"></i>
+          </Link>
+
+          {/* Instagram Icon */}
+          <Link href="https://instagram.com" target="_blank">
+            <i className="fab fa-instagram text-2xl text-pink-500 hover:text-pink-600 transition duration-200"></i>
+          </Link>
+        </div>
       </div>
-    </header>
+
+      {/* Mobile Version (hidden on larger screens, visible on mobile) */}
+      <div className="sm:hidden flex justify-between mt-4 space-x-6">
+        <div className="w-full flex justify-center space-x-4">
+          {/* Facebook Icon */}
+          <Link href="https://facebook.com" target="_blank">
+            <i className="fab fa-facebook-f text-2xl text-blue-600 hover:text-blue-700 transition duration-200"></i>
+          </Link>
+
+          {/* LinkedIn Icon */}
+          <Link href="https://linkedin.com" target="_blank">
+            <i className="fab fa-linkedin-in text-2xl text-blue-700 hover:text-blue-800 transition duration-200"></i>
+          </Link>
+
+          {/* Instagram Icon */}
+          <Link href="https://instagram.com" target="_blank">
+            <i className="fab fa-instagram text-2xl text-pink-500 hover:text-pink-600 transition duration-200"></i>
+          </Link>
+        </div>
+      </div>
+    </nav>
   );
 };
 
