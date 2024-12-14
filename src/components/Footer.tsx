@@ -2,16 +2,15 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="relative w-full bg-gradient-to-r from-blue-200 via-blue-400 to-red-800 text-white">
+    <footer className="relative w-full bg-gradient-to-r from-pink-400 via-orange-400 to-purple-800 text-white">
       {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           {/* About Section */}
           <div>
-            <h2 className="text-lg font-semibold mb-4">About Us</h2>
+            <h2 className="text-xl font-semibold mb-4">About Us</h2>
             <p className="text-sm">
-              VIVA Institute of Technology is a premier institute offering advanced education and
-              innovative research opportunities in various fields of technology.
+            VIVA Institute of Technology (Approved by AICTE, New Delhi, DTE, Govt. of Maharashtra and Affiliated to the University of Mumbai) was established under the aegis of Vishnu Waman Thakur Charitable Trust with the aim of imparting higher knowledge in Science and Technology to the aspiring boys and girls so that they can emerge as competent scientists, engineers and technologists of repute.
             </p>
           </div>
 

@@ -7,12 +7,14 @@ export default function Home() {
   return (
   
     <div className="bg-gradient-to-r from-white via-gray-100 to-white">
-        <GlassHeader />
+ 
+        <GlassHeader/>
+         
       {/* Full-screen video section */}
       <div className="relative w-full h-screen -mt-6">
   {/* Video Background */}
   <video
-    src="whitelines.mp4"
+    src="orange.mp4"
     autoPlay
     loop
     muted
@@ -24,8 +26,8 @@ export default function Home() {
   
   {/* Text Content */}
   <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-gradient-to-r from-white via-red-800 to-white z-10 px-4 mb-36">
-    <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Viva Institute of Technology</h1>
-    <p className="text-lg md:text-2xl mb-6">
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to Viva Institute of Technology</h1>
+    <p className="text-lg md:text-2xl mb-6 text-white">
       Discover innovation, creativity, and opportunities with us.
     </p>
     <div>
@@ -45,21 +47,62 @@ export default function Home() {
         <div className="flex flex-wrap justify-center gap-8 mt-10">
           {/* Sections */}
           {[
+              {
+                id: "project_competition",
+                title: "Project Competition",
+                description: "Learn about various industrial visits and the experiences we offer.",
+                href: "/project_competition",
+                imgSrc: "/Mechanical Engineering/1st place Jana Kalyan Hackathon IEEE TCET.png",
+                imgAlt: "Industrial Visits",
+              },
+       
             {
-              id: "industrial-visits",
-              title: "Industrial Visits",
+              id: "Industrial-visit",
+              title: "Industrial-visit",
               description: "Learn about various industrial visits and the experiences we offer.",
               href: "/industrial-visits",
               imgSrc: "/medical.jpeg",
               imgAlt: "Industrial Visits",
             },
             {
-              id: "techchase",
-              title: "TechChase",
+              id: "MOU",
+              title: "MOU under GUEST LECTURE",
               description: "Explore the latest tech trends with our TechChase initiative.",
-              href: "/techchase",
+              href: "/mou",
               imgSrc: "/ISR.jpeg",
-              imgAlt: "TechChase",
+              imgAlt: "mou",
+            },
+            {
+              id: "isr-activity",
+              title: "ISR Activity",
+              description: "Get involved in the ISR activities to make a positive social impact.",
+              href: "/isr-activity",
+              imgSrc: "/image1.jpg",
+              imgAlt: "ISR Activity",
+            },
+            {
+              id: "Faculty Development Program",
+              title: "Faculty Development Program",
+              description: "Learn about various industrial visits and the experiences we offer.",
+              href: "/faculty_development_program",
+              imgSrc: "/Main.jpg",
+              imgAlt: "Industrial Visits",
+            },
+            {
+              id: "techchase",
+              title: "Techchase",
+              description: "Get involved in the ISR activities to make a positive social impact.",
+              href: "/techchase",
+              imgSrc: "/Techchase.png",
+              imgAlt: "ISR Activity",
+            },
+            {
+              id: "ncrenb_conference",
+              title: "NCRENB Conference",
+              description: "Learn about various industrial visits and the experiences we offer.",
+              href: "/ncrenb_conference",
+              imgSrc: "/Computer Engineering/OtherEvents.jpg",
+              imgAlt: "Industrial Visits",
             },
             {
               id: "hitaishi",
@@ -69,12 +112,13 @@ export default function Home() {
               imgSrc: "/Trophy.jpeg",
               imgAlt: "Hitaishi",
             },
+         
             {
-              id: "isr-activity",
-              title: "ISR Activity",
+              id: "placements_training",
+              title: "Placements & Training",
               description: "Get involved in the ISR activities to make a positive social impact.",
-              href: "/isr-activity",
-              imgSrc: "/image1.jpg",
+              href: "/placement_training",
+              imgSrc: "/Main4.jpg",
               imgAlt: "ISR Activity",
             },
             {

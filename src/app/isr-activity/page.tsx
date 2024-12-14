@@ -1,299 +1,123 @@
-"use client"
-import { useState } from 'react';
-import Image from 'next/image';
-import GlassHeader from '@/components/GlassHeader';
-import Footer from '@/components/Footer';
+"use client";
+import Image from "next/image";
+import GlassHeader from "@/components/GlassHeader";
+import Footer from "@/components/Footer";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function TechChase() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState('');
-
-  // Function to open the modal with the selected image
-  const openModal = (imageSrc: string) => {
-    setSelectedImage(imageSrc);
-    setIsOpen(true);
-  };
-
-  // Function to close the modal
-  const closeModal = () => {
-    setIsOpen(false);
-    setSelectedImage('');
-  };
+    const visits = [
+        {
+          imageSrc: "/image1.jpg",
+          title: "AI and Healthcare: Transforming the Future",
+          description:
+            "A guest lecture focusing on the integration of Artificial Intelligence in healthcare, discussing its potential to predict medical conditions and revolutionize patient care.",
+        },
+        {
+          imageSrc: "/image2.jpg",
+          title: "Blockchain Technology: Security and Future Applications",
+          description:
+            "A lecture exploring how Blockchain technology ensures secure data storage and communication, and its potential impact on various industries like finance and healthcare.",
+        },
+        {
+          imageSrc: "/image3.jpg",
+          title: "IoT in Smart Cities: Enhancing Urban Life",
+          description:
+            "A guest lecture discussing the role of IoT systems in creating smart cities, with a focus on monitoring air quality, energy consumption, and urban infrastructure for sustainability.",
+        },
+        {
+          imageSrc: "/image4.jpg",
+          title: "IoT and AI in Modern Agriculture",
+          description:
+            "A lecture on how IoT and AI are being applied in farming to optimize irrigation, monitor crop health, and make agriculture more efficient and sustainable.",
+        },
+        {
+          imageSrc: "/Computer Engineering/Seminar_5.jpeg",
+          title: "Virtual Reality in Education: Revolutionizing Learning",
+          description:
+            "A seminar on the use of Virtual Reality in education, showcasing how immersive VR tools can provide hands-on learning experiences for complex subjects.",
+        },
+        {
+          imageSrc: "/Computer Engineering/TechChase_6.jpg",
+          title: "AI for Mental Health: Innovations in Wellness",
+          description:
+            "A guest lecture on the potential of AI-powered applications to analyze user data and provide personalized mental health solutions, helping users manage stress and anxiety.",
+        },
+      ];
+      
+      
 
   return (
-    <div className="bg-white min-h-screen text-gray-900">
-      {/* Transparent Glass Navbar */}
+    <div className="relative bg-white min-h-screen text-gray-900 overflow-hidden">
       <GlassHeader />
+      
+      {/* Background Video */}
+      <video
+        src="orange.mp4"
+        autoPlay
+        loop
+        muted
+        className="absolute top-40 left-0 w-full h-full object-cover  z-0"
+      ></video>
 
-      <main className="p-10 space-y-10">
+      <main className="relative z-10 p-10 space-y-10">
         <section className="space-y-6">
-          <h1 className="text-4xl font-semibold">Industrial Visits 2023 and 2024</h1>
-          <p className="text-lg text-gray-700">Explore our various industrial visits and their significance.</p>
+          {/* TechChase Title */}
+          <h1 className="text-4xl font-semibold">ISR Activities 2023-2024</h1>
+         
         </section>
 
         {/* Glass Effect Cards */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div
-            onClick={() => openModal('/image1.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/MainImage.jpg"
-              alt="Industrial Visit 1"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 1</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-01-20</span>
-            </div>
-          </div>
+          {visits.map((visit, index) => (
+            <Dialog key={index}>
+              <DialogTrigger>
+                {/* Card */}
+                <div className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn">
+                  <Image
+                    src={visit.imageSrc}
+                    alt={`Project ${index + 1}`}
+                    width={500}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                    <h3 className="text-xl font-semibold">{visit.title}</h3>
+                    <p>{visit.description}</p>
+                    {/* <span className="text-sm">Date: {visit.date}</span> */} {/* Commented out */}
+                  </div>
+                </div>
+              </DialogTrigger>
 
-          {/* Card 2 */}
-          <div
-            onClick={() => openModal('/image2.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image2.jpg"
-              alt="Industrial Visit 2"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 2</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-02-15</span>
-            </div>
-          </div>
+              <DialogContent className="overflow-auto max-h-[80vh] max-w-[40vw] bg-white/60">
+  <DialogHeader>
+    <DialogTitle className="text-3xl text-center text-blue-500">
+      {visit.title}
+    </DialogTitle>
+    <Image
+      src={visit.imageSrc}
+      alt={`Project ${index + 1}`}
+      width={500}
+      height={300}
+      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 rounded-lg"
+    />
+    <h2 className="text-xl text-center py-3">{visit.description}</h2>
+    {/* <h2 className="text-xl text-center">Date: {visit.date}</h2> */} {/* Commented out */}
+  </DialogHeader>
+</DialogContent>
 
-          {/* Card 3 */}
-          <div
-            onClick={() => openModal('/image3.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image3.jpg"
-              alt="Industrial Visit 3"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 3</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-03-10</span>
-            </div>
-          </div>
-
-          
-          {/* Card 3 */}
-          <div
-            onClick={() => openModal('/image3.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image3.jpg"
-              alt="Industrial Visit 3"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 3</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-03-10</span>
-            </div>
-          </div>
-
-          
-          {/* Card 3 */}
-          <div
-            onClick={() => openModal('/image3.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image3.jpg"
-              alt="Industrial Visit 3"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 3</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-03-10</span>
-            </div>
-          </div>
-
-          
-          {/* Card 3 */}
-          <div
-            onClick={() => openModal('/image3.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image3.jpg"
-              alt="Industrial Visit 3"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 3</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-03-10</span>
-            </div>
-          </div>
-      {/* Card 1 */}
-      <div
-            onClick={() => openModal('/image1.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image1.jpg"
-              alt="Industrial Visit 1"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 1</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-01-20</span>
-            </div>
-          </div>
-
-            {/* Card 1 */}
-            <div
-            onClick={() => openModal('/image1.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image1.jpg"
-              alt="Industrial Visit 1"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 1</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-01-20</span>
-            </div>
-          </div>
-
-            {/* Card 1 */}
-            <div
-            onClick={() => openModal('/image1.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image1.jpg"
-              alt="Industrial Visit 1"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 1</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-01-20</span>
-            </div>
-          </div>
-
-            {/* Card 1 */}
-            <div
-            onClick={() => openModal('/image1.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image1.jpg"
-              alt="Industrial Visit 1"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 1</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-01-20</span>
-            </div>
-          </div>
-
-            {/* Card 1 */}
-            <div
-            onClick={() => openModal('/image1.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image1.jpg"
-              alt="Industrial Visit 1"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 1</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-01-20</span>
-            </div>
-          </div>
-          
-          {/* Card 3 */}
-          <div
-            onClick={() => openModal('/image3.jpg')}
-            className="relative group cursor-pointer bg-white/50 rounded-lg shadow-lg backdrop-blur-md overflow-hidden animate-slideIn"
-          >
-            <Image
-              src="/image3.jpg"
-              alt="Industrial Visit 3"
-              width={500}
-              height={300}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-xl font-semibold">Visit Title 3</h3>
-              <p>Short description of the visit.</p>
-              <span className="text-sm">Date: 2024-03-10</span>
-            </div>
-          </div>
-
-          {/* More Cards... */}
+            </Dialog>
+          ))}
         </section>
-
-        {/* Modal for Enlarged Image */}
-        {isOpen && (
-          <div className="fixed inset-0 bg-black/60 z-50 flex justify-center items-center">
-            <div className="relative">
-              <Image
-                src={selectedImage}
-                alt="Enlarged Image"
-                width={800}
-                height={600}
-                className="object-contain"
-              />
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 bg-white p-2 rounded-full text-black shadow-lg hover:bg-gray-200 hover:bg-transparent"
-              >
-                X
-              </button>
-            </div>
-          </div>
-        )}
       </main>
 
-         {/* Footer */}
-     {/* Footer */}
-     <div className='mt-10'>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
-
