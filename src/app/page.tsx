@@ -6,19 +6,19 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
   
-    <div className="bg-gradient-to-r from-white via-gray-100 to-white">
+    <div className="bg-gradient-to-r from-white via-gray-100 to-white -mt-6">
  
         <GlassHeader/>
          
       {/* Full-screen video section */}
-      <div className="relative w-full h-screen -mt-6">
+      <div className="relative w-full h-screen">
   {/* Video Background */}
   <video
-    src="orange.mp4"
+    src="box.mp4"
     autoPlay
     loop
     muted
-    className="absolute top-0 left-0 w-full h-full object-cover"
+    className="absolute top-0 left-0 w-full h-full object-cover "
   ></video>
   
   {/* Optional Overlay */}
@@ -26,7 +26,7 @@ export default function Home() {
   
   {/* Text Content */}
   <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-gradient-to-r from-white via-red-800 to-white z-10 px-4 mb-36">
-    <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to Viva Institute of Technology</h1>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to VIVA Institute of Technology</h1>
     <p className="text-lg md:text-2xl mb-6 text-white">
       Discover innovation, creativity, and opportunities with us.
     </p>
@@ -43,8 +43,15 @@ export default function Home() {
     
 
       {/* Main content section */}
-      <main className="flex flex-col items-center justify-center min-h-screen text-gray-900 mt-10">
+      <main id='explore' className="flex flex-col items-center justify-center min-h-screen text-gray-900 mt-10 ">
+
+  
+
         <div className="flex flex-wrap justify-center gap-8 mt-10">
+  
+
+      {/* Overlay to darken video */}
+      <div className="absolute inset-0 bg-black/50"></div>
           {/* Sections */}
           {[
               {

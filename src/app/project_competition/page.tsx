@@ -78,14 +78,14 @@ export default function TechChase() {
       
 
   return (
-    <div className="relative bg-white min-h-screen text-gray-900 overflow-hidden">
+    <div className="relative bg-white min-h-screen text-white overflow-hidden">
       
       <GlassHeader />
         
       
       {/* Background Video */}
       <video
-        src="orange.mp4"
+        src="box.mp4"
         autoPlay
         loop
         muted
@@ -111,7 +111,7 @@ export default function TechChase() {
                     alt={`Project ${index + 1}`}
                     width={500}
                     height={300}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 rounded-lg"
                   />
                   <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black/30 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
                     <h3 className="text-xl font-semibold">{visit.title}</h3>
@@ -121,7 +121,7 @@ export default function TechChase() {
                 </div>
               </DialogTrigger>
 
-              <DialogContent className="overflow-auto max-h-[80vh] max-w-[40vw] bg-white/60">
+              <DialogContent className="overflow-auto max-h-[80vh] max-w-[40vw] bg-white rounded-lg">
   <DialogHeader>
     <DialogTitle className="text-3xl text-center text-blue-500">
       {visit.title}

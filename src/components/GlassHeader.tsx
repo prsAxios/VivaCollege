@@ -13,7 +13,7 @@ const GlassHeader = () => {
   }, []);
 
   return (
-    <nav className="bg-white/30 shadow-lg sticky top-0 z-50 py-4 sm:py-6 rounded-lg border border-white/30 backdrop-blur-md">
+    <nav className="bg-white/30 drop-shadow-2xl sticky top-0 z-50 py-4 sm:py-6 rounded-lg border border-white/30 backdrop-blur-md">
       <div className="container mx-auto px-4 flex items-center justify-between space-x-6 sm:space-x-8">
         {/* Logo and Institute Details */}
         <div className="flex items-center space-x-4 sm:space-x-6 flex-shrink-0 w-full sm:w-auto">
@@ -46,17 +46,22 @@ const GlassHeader = () => {
         {/* Navbar Links (Icons) */}
         <div className="flex items-center space-x-6 sm:space-x-8">
           {/* Facebook Icon */}
-          <Link href="https://facebook.com" target="_blank">
+          <Link href="https://www.facebook.com/viva.technology/" target="_blank">
             <i className="fab fa-facebook-f text-2xl text-blue-600 hover:text-blue-700 transition duration-200"></i>
           </Link>
 
+          <Link href="https://youtube.com/@vivainstituteoftech?si=oJ0I0zhPc13ShdK6" target="_blank">
+            <i className="fab fa-youtube text-2xl text-red-600 hover:text-white-700 transition duration-200"></i>
+          </Link>
+
           {/* LinkedIn Icon */}
-          <Link href="https://linkedin.com" target="_blank">
+          <Link href="https://www.linkedin.com/school/viva-institute-of-pharmacy---india/?originalSubdomain" target="_blank">
             <i className="fab fa-linkedin-in text-2xl text-blue-700 hover:text-blue-800 transition duration-200"></i>
           </Link>
 
           {/* Instagram Icon */}
-          <Link href="https://instagram.com" target="_blank">
+          <Link href="https://www.instagram.com/vivacollege_official/profilecard/?igsh=bGRyOTExYjR5NWE0
+" target="_blank">
             <i className="fab fa-instagram text-2xl text-pink-500 hover:text-pink-600 transition duration-200"></i>
           </Link>
         </div>
@@ -76,7 +81,7 @@ const GlassHeader = () => {
           </Link>
 
           {/* Instagram Icon */}
-          <Link href="https://instagram.com" target="_blank">
+          <Link href="https://www.instagram.com/vivacollege_official/profilecard/?igsh=bGRyOTExYjR5NWE0" target="_blank">
             <i className="fab fa-instagram text-2xl text-pink-500 hover:text-pink-600 transition duration-200"></i>
           </Link>
         </div>
