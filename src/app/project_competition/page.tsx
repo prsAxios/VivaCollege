@@ -67,6 +67,13 @@ export default function TechChase() {
           description:
             "A competition where participants create AI-powered apps aimed at supporting mental health by analyzing user data and suggesting personalized wellness routines to manage stress and anxiety.",
         },
+        {
+          imageSrc: "/Computer Engineering/TechChase_6.jpg",
+          title: "Demo Project",
+          description:
+            "Hi evryone",
+        },
+
       ];
       
 
