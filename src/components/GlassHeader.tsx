@@ -13,7 +13,7 @@ const GlassHeader = () => {
   }, []);
 
   return (
-    <nav className="bg-white/30 drop-shadow-2xl sticky top-0 z-50 py-4 sm:py-6 rounded-lg border border-white/30 backdrop-blur-md">
+    <nav className="bg-white drop-shadow-2xl sticky top-0 z-50 py-4 sm:py-6  border border-white/30 backdrop-blur-md">
       <div className="container mx-auto px-4 flex items-center justify-between space-x-6 sm:space-x-8">
         {/* Logo and Institute Details */}
         <div className="flex items-center space-x-4 sm:space-x-6 flex-shrink-0 w-full sm:w-auto">
