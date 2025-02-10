@@ -2,19 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="relative w-full text-white overflow-hidden">
-      {/* Background Video */}
-      <video
-        src="box.mp4"
-        autoPlay
-        loop
-        muted
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-50" 
-        
-      ></video>
-
+    <footer className="relative w-full text-black overflow-hidden">
       {/* Overlay to darken video */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-white shadow-2xl"></div>
 
       {/* Footer Content */}
       <div className="relative max-w-7xl mx-auto px-6 py-10">
